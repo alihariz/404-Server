@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteBase /404-Server/api/
+
+# If the request is for a file that exists, let Apache serve it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Otherwise, route the request to index.php
+RewriteRule ^(.*)$ index.php [QSA,L]
